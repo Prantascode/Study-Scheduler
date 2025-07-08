@@ -18,6 +18,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +29,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "users")
 public class User implements UserDetails{
     
     @Id
@@ -41,7 +44,7 @@ public class User implements UserDetails{
 
     @Column(unique = true,nullable = false)
     private String firstName;
-    
+
     @Column(unique = true,nullable = false)
     private String lastname;
 
@@ -57,6 +60,7 @@ public class User implements UserDetails{
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<StudySession> studySessions;
 
+    @PrePersist
     protected void onCreate(){
         createdAt = LocalDateTime.now();
     }

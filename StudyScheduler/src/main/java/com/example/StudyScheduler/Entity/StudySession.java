@@ -2,10 +2,6 @@ package com.example.StudyScheduler.Entity;
 
 import java.time.LocalDateTime;
 
-import org.hibernate.annotations.ManyToAny;
-import org.springframework.boot.actuate.web.exchanges.HttpExchange.Session;
-
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -32,7 +28,7 @@ public class StudySession {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(name = "start_time",nullable = false)
     private LocalDateTime starTime;
     @Column(name = "end_time")

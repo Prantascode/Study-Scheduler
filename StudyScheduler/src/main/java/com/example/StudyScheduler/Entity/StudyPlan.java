@@ -21,7 +21,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import jakarta.persistence.*;
 @Entity
 
 @Data
@@ -77,6 +77,4 @@ public class StudyPlan {
         updateAt = LocalDateTime.now();
     }
 }
-enum PlanStatus{
-    ACTIVE, COMPLETED, PAUSED
-}
+
